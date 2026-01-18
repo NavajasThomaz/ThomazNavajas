@@ -1,0 +1,8 @@
+1:"$Sreact.fragment"
+2:I[13516,["/_next/static/chunks/046baad24947f28e.js","/_next/static/chunks/4552c1e8781dc9d2.js"],"ViewportBoundary"]
+4:I[13516,["/_next/static/chunks/046baad24947f28e.js","/_next/static/chunks/4552c1e8781dc9d2.js"],"MetadataBoundary"]
+5:"$Sreact.suspense"
+7:I[60599,["/_next/static/chunks/046baad24947f28e.js","/_next/static/chunks/4552c1e8781dc9d2.js"],"IconMark"]
+0:{"buildId":"4cnG6j6ivu5eJgX0QWmOP","rsc":["$","$1","h",{"children":[null,["$","$L2",null,{"children":"$@3"}],["$","div",null,{"hidden":true,"children":["$","$L4",null,{"children":["$","$5",null,{"name":"Next.Metadata","children":"$@6"}]}]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],"loading":null,"isPartial":false}
+3:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:[["$","title","0",{"children":"Data Engineering Portfolio | AI-Powered Resume"}],["$","meta","1",{"name":"description","content":"Interactive portfolio showcasing data engineering expertise with an AI chatbot interface"}],["$","meta","2",{"name":"generator","content":"v0.app"}],["$","meta","3",{"name":"keywords","content":"data engineering,portfolio,AI,machine learning,big data"}],["$","link","4",{"rel":"icon","href":"/icon-light-32x32.png","media":"(prefers-color-scheme: light)"}],["$","link","5",{"rel":"icon","href":"/icon-dark-32x32.png","media":"(prefers-color-scheme: dark)"}],["$","link","6",{"rel":"icon","href":"/icon.svg","type":"image/svg+xml"}],["$","link","7",{"rel":"apple-touch-icon","href":"/apple-icon.png"}],["$","$L7","8",{}]]
