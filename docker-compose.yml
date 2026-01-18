@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: thomaz-navajas-app
+    # Não expor porta externamente - apenas para cloudflared
+    expose:
+      - "3000"
+    environment:
+      - NODE_ENV=production
+      - ABACUS_API_URL=${ABACUS_API_URL:-https://apps.abacus.ai}
+      - ABACUS_DEPLOYMENT_TOKEN=${ABACUS_DEPLOYMENT_TOKEN}
+      - ABACUS_DEPLOYMENT_ID=${ABACUS_DEPLOYMENT_ID}
+      - ABACUS_API_KEY=${ABACUS_API_KEY}
+      - ABACUS_CONVERSATION_ID=${ABACUS_CONVERSATION_ID}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:3000/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    networks:
+      - app-network
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: thomaz-navajas-tunnel
+    command: tunnel --config /etc/cloudflared/config.yml run
+    volumes:
+      # Arquivo de configuração do tunnel
+      - ./cloudflared-config.yml:/etc/cloudflared/config.yml:ro
+      # Credenciais do tunnel (geradas após login)
+      - ${CLOUDFLARE_CREDENTIALS_PATH:-./.cloudflared}/:/etc/cloudflared/:ro
+    restart: unless-stopped
+    depends_on:
+      - app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

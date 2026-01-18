@@ -211,3 +211,11 @@ __marimo__/
 tests/
 node_modules
 .env.local
+
+# Cloudflare Tunnel
+.cloudflared/
+*.json
+cloudflared-config.yml
+
+# Docker
+.docker/

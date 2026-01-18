@@ -9,14 +9,6 @@ import { Button } from "@/components/ui/button"
 import { useState } from "react"
 import { useLanguage } from "@/lib/language-context"
 
-const navItems = [
-  { name: "Home", href: "/" },
-  { name: "Experience", href: "/experience" },
-  { name: "Projects", href: "/projects" },
-  { name: "Skills", href: "/skills" },
-  { name: "Contact", href: "/contact" },
-]
-
 export function Navigation() {
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
@@ -36,9 +28,9 @@ export function Navigation() {
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="flex items-center gap-2">
           <div className="flex h-8 w-8 items-center justify-center rounded bg-primary font-mono text-sm font-bold text-primary-foreground">
-            DE
+            TN
           </div>
-          <span className="hidden font-semibold sm:inline-block">{t("dataEngineer")}</span>
+          <span className="hidden font-semibold sm:inline-block">Thomaz Navajas</span>
         </Link>
 
         {/* Desktop Navigation */}

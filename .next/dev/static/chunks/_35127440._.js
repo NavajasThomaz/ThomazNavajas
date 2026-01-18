@@ -98,97 +98,179 @@ var _s = __turbopack_context__.k.signature(), _s1 = __turbopack_context__.k.sign
 "use client";
 ;
 const translations = {
-    en: {
-        // Navigation
-        home: "Home",
-        experience: "Experience",
-        projects: "Projects",
-        skills: "Skills",
-        contact: "Contact",
-        dataEngineer: "Data Engineer",
-        // Homepage
-        helloTitle: "Hello, I'm a",
-        homeSubtitle: "Specializing in building scalable data pipelines, ETL systems, and analytics infrastructure. Ask me anything about my experience, projects, or technical skills.",
-        yearsExp: "Years Experience",
-        projectsCompleted: "Projects Completed",
-        techMastered: "Technologies Mastered",
-        // Chat Interface
-        aiAssistant: "AI Portfolio Assistant",
-        typing: "Thinking...",
-        online: "Online",
-        startConversation: "Start a conversation",
-        askAnything: "Ask me anything about my background, skills, or projects",
-        askPlaceholder: "Ask me anything...",
-        send: "Send message",
-        clearChat: "Clear",
-        noAnswerFallback: "Sorry, I couldn't get a response now. Please try again.",
-        // Suggested Questions
-        q1: "What's your experience with data pipelines?",
-        q2: "Tell me about your technical skills",
-        q3: "What projects have you worked on?",
-        q4: "What tools do you use for ETL?",
-        // Experience Page
-        experienceTitle: "Professional Experience",
-        experienceSubtitle: "My journey in data engineering and analytics",
-        // Projects Page
-        projectsTitle: "Featured Projects",
-        projectsSubtitle: "Showcasing my work in data engineering and analytics",
-        // Skills Page
-        skillsTitle: "Technical Skills",
-        skillsSubtitle: "Technologies and tools I work with",
-        // Contact Page
-        contactTitle: "Get In Touch",
-        contactSubtitle: "Let's discuss how we can work together"
-    },
     pt: {
-        // Navigation
         home: "Início",
         experience: "Experiência",
         projects: "Projetos",
         skills: "Habilidades",
         contact: "Contato",
         dataEngineer: "Engenheiro de Dados",
-        // Homepage
-        helloTitle: "Olá, sou um",
-        homeSubtitle: "Especializado em construir pipelines de dados escaláveis, sistemas ETL e infraestrutura de análise. Pergunte-me qualquer coisa sobre minha experiência, projetos ou habilidades técnicas.",
+        helloTitle: "Engenheiro de Dados & IA",
+        homeTitle: "Thomaz Navajas",
+        homeSubtitle: "Engenheiro de Computação especializado em Engenharia de Dados e Inteligência Artificial. Desenvolvo soluções escaláveis com Python, pipelines ETL/ELT, agentes LLM (LangChain + SLMs), ML aplicado e arquiteturas de dados modernas. Experiência em projetos ponta a ponta on-prem e em nuvem, integrando SQL/NoSQL, APIs e automações web.",
         yearsExp: "Anos de Experiência",
         projectsCompleted: "Projetos Concluídos",
         techMastered: "Tecnologias Dominadas",
-        // Chat Interface
-        aiAssistant: "Assistente de Portfólio IA",
-        typing: "Pensando...",
+        aiAssistant: "Assistente IA",
         online: "Online",
-        startConversation: "Iniciar uma conversa",
-        askAnything: "Pergunte-me qualquer coisa sobre minha formação, habilidades ou projetos",
-        askPlaceholder: "Pergunte-me qualquer coisa...",
-        send: "Enviar mensagem",
-        clearChat: "Limpar",
-        noAnswerFallback: "Não consegui obter resposta agora. Tente novamente.",
-        // Suggested Questions
-        q1: "Qual é sua experiência com pipelines de dados?",
-        q2: "Fale sobre suas habilidades técnicas",
-        q3: "Em quais projetos você trabalhou?",
-        q4: "Quais ferramentas você usa para ETL?",
-        // Experience Page
-        experienceTitle: "Experiência Profissional",
-        experienceSubtitle: "Minha jornada em engenharia de dados e análise",
-        // Projects Page
-        projectsTitle: "Projetos em Destaque",
-        projectsSubtitle: "Mostrando meu trabalho em engenharia de dados e análise",
-        // Skills Page
-        skillsTitle: "Habilidades Técnicas",
-        skillsSubtitle: "Tecnologias e ferramentas com as quais trabalho",
-        // Contact Page
-        contactTitle: "Entre em Contato",
-        contactSubtitle: "Vamos discutir como podemos trabalhar juntos"
+        typing: "Digitando...",
+        clearChat: "Limpar Chat",
+        startConversation: "Inicie uma Conversa",
+        askAnything: "Pergunte qualquer coisa sobre minha experiência, projetos ou habilidades",
+        askPlaceholder: "Pergunte sobre engenharia de dados, projetos ou experiência...",
+        send: "Enviar",
+        noAnswerFallback: "Desculpe, não consegui processar sua pergunta. Por favor, tente novamente.",
+        q1: "Quais são suas principais habilidades?",
+        q2: "Conte-me sobre seus projetos",
+        q3: "Qual sua experiência com big data?",
+        q4: "Como você trabalha com machine learning?",
+        // Experience page
+        workExperience: "Experiência Profissional",
+        experienceSubtitle: "Minha jornada profissional em engenharia de dados, construindo sistemas escaláveis e impulsionando tomadas de decisão baseadas em dados.",
+        keyAchievements: "Principais Conquistas:",
+        period: "Período",
+        // Projects page
+        featuredProjects: "Projetos em Destaque",
+        projectsSubtitle: "Mostrando projetos impactantes de engenharia de dados que resolvem problemas do mundo real em escala.",
+        impact: "Impacto",
+        viewCode: "Ver Código",
+        liveDemo: "Demonstração ao Vivo",
+        // Skills page
+        technicalSkills: "Habilidades Técnicas",
+        skillsSubtitle: "Experiência abrangente em todo o stack moderno de engenharia de dados.",
+        programmingLanguages: "Linguagens de Programação",
+        bigDataTech: "Tecnologias de Big Data",
+        cloudPlatforms: "Plataformas em Nuvem",
+        databases: "Bancos de Dados",
+        devOpsTools: "DevOps e Ferramentas",
+        dataTools: "Ferramentas de Dados",
+        mlAiTools: "ML/IA e Ferramentas",
+        apiTools: "APIs e Integração",
+        graphicsTools: "Gráficos e Visualização 3D",
+        certifications: "Certificações",
+        // Contact page
+        getInTouch: "Entre em Contato",
+        contactSubtitle: "Interessado em trabalhar juntos? Vamos nos conectar e discutir como posso ajudar com suas necessidades de engenharia de dados.",
+        contactInformation: "Informações de Contato",
+        email: "E-mail",
+        location: "Localização",
+        socialLinks: "Links Sociais",
+        sendMessage: "Enviar Mensagem",
+        name: "Nome",
+        namePlaceholder: "Seu nome",
+        emailPlaceholder: "seu.email@exemplo.com",
+        subject: "Assunto",
+        subjectPlaceholder: "Sobre o que se trata?",
+        message: "Mensagem",
+        messagePlaceholder: "Conte-me sobre seu projeto ou oportunidade...",
+        sendMessageButton: "Enviar Mensagem"
+    },
+    en: {
+        home: "Home",
+        experience: "Experience",
+        projects: "Projects",
+        skills: "Skills",
+        contact: "Contact",
+        dataEngineer: "Data Engineer",
+        helloTitle: "Data Engineer & AI",
+        homeTitle: "Thomaz Navajas",
+        homeSubtitle: "Computer Engineer specialized in Data Engineering and Artificial Intelligence. I develop scalable solutions with Python, ETL/ELT pipelines, LLM agents (LangChain + SLMs), applied ML and modern data architectures. Experience in end-to-end projects on-prem and in cloud, integrating SQL/NoSQL, APIs and web automation.",
+        yearsExp: "Years of Experience",
+        projectsCompleted: "Projects Completed",
+        techMastered: "Technologies Mastered",
+        aiAssistant: "AI Assistant",
+        online: "Online",
+        typing: "Typing...",
+        clearChat: "Clear Chat",
+        startConversation: "Start a Conversation",
+        askAnything: "Ask me anything about my experience, projects, or skills",
+        askPlaceholder: "Ask about data engineering, projects, or experience...",
+        send: "Send",
+        noAnswerFallback: "Sorry, I couldn't process your question. Please try again.",
+        q1: "What are your main skills?",
+        q2: "Tell me about your projects",
+        q3: "What's your experience with big data?",
+        q4: "How do you work with machine learning?",
+        // Experience page
+        workExperience: "Work Experience",
+        experienceSubtitle: "My professional journey in data engineering, building scalable systems and driving data-driven decision making.",
+        keyAchievements: "Key Achievements:",
+        period: "Period",
+        // Projects page
+        featuredProjects: "Featured Projects",
+        projectsSubtitle: "Showcasing impactful data engineering projects that solve real-world problems at scale.",
+        impact: "Impact",
+        viewCode: "View Code",
+        liveDemo: "Live Demo",
+        // Skills page
+        technicalSkills: "Technical Skills",
+        skillsSubtitle: "Comprehensive expertise across the modern data engineering stack.",
+        programmingLanguages: "Programming Languages",
+        bigDataTech: "Big Data Technologies",
+        cloudPlatforms: "Cloud Platforms",
+        databases: "Databases",
+        devOpsTools: "DevOps & Tools",
+        dataTools: "Data Tools",
+        mlAiTools: "ML/AI & Tools",
+        apiTools: "APIs & Integration",
+        graphicsTools: "Graphics & 3D Visualization",
+        certifications: "Certifications",
+        // Contact page
+        getInTouch: "Get in Touch",
+        contactSubtitle: "Interested in working together? Let's connect and discuss how I can help with your data engineering needs.",
+        contactInformation: "Contact Information",
+        email: "Email",
+        location: "Location",
+        socialLinks: "Social Links",
+        sendMessage: "Send a Message",
+        name: "Name",
+        namePlaceholder: "Your name",
+        emailPlaceholder: "your.email@example.com",
+        subject: "Subject",
+        subjectPlaceholder: "What's this about?",
+        message: "Message",
+        messagePlaceholder: "Tell me about your project or opportunity...",
+        sendMessageButton: "Send Message"
     }
 };
 const LanguageContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["createContext"])(undefined);
+const LANGUAGE_STORAGE_KEY = "portfolio-language";
 function LanguageProvider({ children }) {
     _s();
-    const [language, setLanguage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("en");
+    const [language, setLanguageState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])("pt");
+    const [hydrated, setHydrated] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
+    // Load language from localStorage on mount
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "LanguageProvider.useEffect": ()=>{
+            if ("TURBOPACK compile-time falsy", 0) //TURBOPACK unreachable
+            ;
+            try {
+                const saved = localStorage.getItem(LANGUAGE_STORAGE_KEY);
+                if (saved === "en" || saved === "pt") {
+                    setLanguageState(saved);
+                }
+            } catch  {
+            // ignore parse errors
+            } finally{
+                setHydrated(true);
+            }
+        }
+    }["LanguageProvider.useEffect"], []);
+    // Save language to localStorage when it changes
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useEffect"])({
+        "LanguageProvider.useEffect": ()=>{
+            if (!hydrated || ("TURBOPACK compile-time value", "object") === "undefined") return;
+            localStorage.setItem(LANGUAGE_STORAGE_KEY, language);
+        }
+    }["LanguageProvider.useEffect"], [
+        language,
+        hydrated
+    ]);
+    const setLanguage = (lang)=>{
+        setLanguageState(lang);
+    };
     const t = (key)=>{
-        return translations[language][key] || key;
+        return translations[language]?.[key] || key;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(LanguageContext.Provider, {
         value: {
@@ -199,11 +281,11 @@ function LanguageProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/lib/language-context.tsx",
-        lineNumber: 125,
-        columnNumber: 10
+        lineNumber: 191,
+        columnNumber: 13
     }, this);
 }
-_s(LanguageProvider, "JgNS4s3wc06/6u6z+Ak7Ai5ELN8=");
+_s(LanguageProvider, "Nr1LDTOIk6hTL+FTePvtW83ZvtM=");
 _c = LanguageProvider;
 function useLanguage() {
     _s1();
@@ -251,28 +333,6 @@ var _s = __turbopack_context__.k.signature();
 ;
 ;
 ;
-const navItems = [
-    {
-        name: "Home",
-        href: "/"
-    },
-    {
-        name: "Experience",
-        href: "/experience"
-    },
-    {
-        name: "Projects",
-        href: "/projects"
-    },
-    {
-        name: "Skills",
-        href: "/skills"
-    },
-    {
-        name: "Contact",
-        href: "/contact"
-    }
-];
 function Navigation() {
     _s();
     const pathname = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePathname"])();
@@ -313,24 +373,24 @@ function Navigation() {
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                 className: "flex h-8 w-8 items-center justify-center rounded bg-primary font-mono text-sm font-bold text-primary-foreground",
-                                children: "DE"
+                                children: "TN"
                             }, void 0, false, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 38,
+                                lineNumber: 30,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 className: "hidden font-semibold sm:inline-block",
-                                children: t("dataEngineer")
+                                children: "Thomaz Navajas"
                             }, void 0, false, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 41,
+                                lineNumber: 33,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/navigation.tsx",
-                        lineNumber: 37,
+                        lineNumber: 29,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -342,7 +402,7 @@ function Navigation() {
                                     children: item.name
                                 }, item.href, false, {
                                     fileName: "[project]/components/navigation.tsx",
-                                    lineNumber: 47,
+                                    lineNumber: 39,
                                     columnNumber: 13
                                 }, this)),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -355,7 +415,7 @@ function Navigation() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 64,
+                                        lineNumber: 56,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -363,13 +423,13 @@ function Navigation() {
                                         children: "Toggle language"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 65,
+                                        lineNumber: 57,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 58,
+                                lineNumber: 50,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -381,14 +441,14 @@ function Navigation() {
                                         className: "h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 68,
+                                        lineNumber: 60,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
                                         className: "absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 69,
+                                        lineNumber: 61,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -396,19 +456,19 @@ function Navigation() {
                                         children: "Toggle theme"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 70,
+                                        lineNumber: 62,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 67,
+                                lineNumber: 59,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/navigation.tsx",
-                        lineNumber: 45,
+                        lineNumber: 37,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -424,7 +484,7 @@ function Navigation() {
                                         className: "h-5 w-5"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 82,
+                                        lineNumber: 74,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -432,13 +492,13 @@ function Navigation() {
                                         children: "Toggle language"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 83,
+                                        lineNumber: 75,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 76,
+                                lineNumber: 68,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -450,14 +510,14 @@ function Navigation() {
                                         className: "h-5 w-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 86,
+                                        lineNumber: 78,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$moon$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Moon$3e$__["Moon"], {
                                         className: "absolute h-5 w-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 87,
+                                        lineNumber: 79,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -465,13 +525,13 @@ function Navigation() {
                                         children: "Toggle theme"
                                     }, void 0, false, {
                                         fileName: "[project]/components/navigation.tsx",
-                                        lineNumber: 88,
+                                        lineNumber: 80,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 85,
+                                lineNumber: 77,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$components$2f$ui$2f$button$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["Button"], {
@@ -482,30 +542,30 @@ function Navigation() {
                                     className: "h-5 w-5"
                                 }, void 0, false, {
                                     fileName: "[project]/components/navigation.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 83,
                                     columnNumber: 31
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$lucide$2d$react$40$0$2e$454$2e$0_react$40$19$2e$2$2e$0$2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$menu$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__$3c$export__default__as__Menu$3e$__["Menu"], {
                                     className: "h-5 w-5"
                                 }, void 0, false, {
                                     fileName: "[project]/components/navigation.tsx",
-                                    lineNumber: 91,
+                                    lineNumber: 83,
                                     columnNumber: 59
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/components/navigation.tsx",
-                                lineNumber: 90,
+                                lineNumber: 82,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/components/navigation.tsx",
-                        lineNumber: 75,
+                        lineNumber: 67,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/components/navigation.tsx",
-                lineNumber: 36,
+                lineNumber: 28,
                 columnNumber: 7
             }, this),
             mobileMenuOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -519,23 +579,23 @@ function Navigation() {
                             children: item.name
                         }, item.href, false, {
                             fileName: "[project]/components/navigation.tsx",
-                            lineNumber: 101,
+                            lineNumber: 93,
                             columnNumber: 15
                         }, this))
                 }, void 0, false, {
                     fileName: "[project]/components/navigation.tsx",
-                    lineNumber: 99,
+                    lineNumber: 91,
                     columnNumber: 11
                 }, this)
             }, void 0, false, {
                 fileName: "[project]/components/navigation.tsx",
-                lineNumber: 98,
+                lineNumber: 90,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/components/navigation.tsx",
-        lineNumber: 35,
+        lineNumber: 27,
         columnNumber: 5
     }, this);
 }

@@ -10,7 +10,7 @@ export default function Home() {
     <div className="mx-auto max-w-4xl px-4 pt-20 pb-8 sm:px-6 sm:pt-24 sm:pb-12 lg:px-8">
       <div className="mb-8 text-center sm:mb-12">
         <h1 className="mb-3 font-mono text-3xl font-bold tracking-tight text-balance sm:mb-4 sm:text-4xl md:text-5xl lg:text-6xl">
-          {t("helloTitle")} <span className="text-primary">{t("dataEngineer")}</span>
+          {t("helloTitle")}
         </h1>
         <p className="mx-auto max-w-2xl text-base text-muted-foreground text-pretty sm:text-lg">{t("homeSubtitle")}</p>
       </div>

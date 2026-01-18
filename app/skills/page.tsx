@@ -1,90 +1,134 @@
+"use client"
+
 import { Card } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Database, Cloud, Code, Wrench, BarChart3, GitBranch } from "lucide-react"
+import { useLanguage } from "@/lib/language-context"
 
 const skillCategories = [
   {
-    title: "Programming Languages",
+    titleKey: "programmingLanguages",
     icon: Code,
     skills: [
-      { name: "Python", level: 95 },
-      { name: "SQL", level: 95 },
-      { name: "Scala", level: 80 },
-      { name: "Java", level: 75 },
-      { name: "Bash", level: 85 },
+      { name: "Python", level: 99 },
+      { name: "Go", level: 70 },
+      { name: "JavaScript/Node.js", level: 65 },
+      { name: "TypeScript", level: 75 },
+      { name: "C/C++/C#", level: 60 },
+      { name: "HTML/CSS", level: 65 },
     ],
   },
   {
-    title: "Big Data Technologies",
+    titleKey: "bigDataTech",
     icon: Database,
     skills: [
-      { name: "Apache Spark", level: 90 },
-      { name: "Apache Kafka", level: 85 },
-      { name: "Apache Airflow", level: 90 },
-      { name: "Hadoop", level: 75 },
-      { name: "Flink", level: 70 },
+      { name: "PySpark", level: 90 },
+      { name: "Delta Lake", level: 85 },
+      { name: "Hadoop", level: 85 },
+      { name: "Databricks", level: 88 },
+      { name: "Kafka", level: 80 },
+      { name: "Airflow", level: 80 },
+      { name: "ETL/ELT", level: 90 },
+      { name: "dbt", level: 85 },
     ],
   },
   {
-    title: "Cloud Platforms",
+    titleKey: "cloudPlatforms",
     icon: Cloud,
     skills: [
-      { name: "AWS (S3, Redshift, Glue, EMR)", level: 90 },
-      { name: "GCP (BigQuery, Dataflow)", level: 85 },
-      { name: "Azure (Synapse, Data Factory)", level: 80 },
-      { name: "Snowflake", level: 85 },
+      { name: "AWS", level: 85 },
+      { name: "Azure", level: 80 },
+      { name: "GCP", level: 80 },
+      { name: "BigQuery", level: 85 },
+      { name: "Terraform", level: 85 },
     ],
   },
   {
-    title: "Databases",
+    titleKey: "databases",
     icon: Database,
     skills: [
       { name: "PostgreSQL", level: 90 },
-      { name: "MongoDB", level: 85 },
-      { name: "Cassandra", level: 75 },
-      { name: "Redis", level: 80 },
-      { name: "Elasticsearch", level: 75 },
+      { name: "MySQL", level: 85 },
+      { name: "MongoDB", level: 90 },
+      { name: "SQL (geral)", level: 95 },
+      { name: "NoSQL", level: 90 },
     ],
   },
   {
-    title: "DevOps & Tools",
+    titleKey: "devOpsTools",
     icon: Wrench,
     skills: [
-      { name: "Docker", level: 90 },
-      { name: "Kubernetes", level: 80 },
-      { name: "Terraform", level: 85 },
       { name: "Git", level: 95 },
       { name: "CI/CD", level: 85 },
+      { name: "Docker", level: 85 },
+      { name: "Kubernetes", level: 75 },
+      { name: "Terraform", level: 85 },
+      { name: "Observabilidade", level: 80 },
     ],
   },
   {
-    title: "Data Tools",
+    titleKey: "dataTools",
     icon: BarChart3,
     skills: [
-      { name: "DBT", level: 90 },
-      { name: "Tableau", level: 80 },
-      { name: "Looker", level: 75 },
-      { name: "Great Expectations", level: 85 },
       { name: "Pandas", level: 95 },
+      { name: "NumPy", level: 90 },
+      { name: "Matplotlib/Seaborn/Plotly", level: 85 },
+      { name: "SQLAlchemy", level: 85 },
+      { name: "Pytest", level: 85 },
+      { name: "Selenium", level: 88 },
+      { name: "Jupyter", level: 90 },
+      { name: "Web Scraping", level: 85 },
     ],
   },
-]
-
-const certifications = [
-  "AWS Certified Data Analytics - Specialty",
-  "Google Professional Data Engineer",
-  "Databricks Certified Associate Developer",
-  "Apache Kafka Certified Developer",
+  {
+    titleKey: "mlAiTools",
+    icon: BarChart3,
+    skills: [
+      { name: "TensorFlow", level: 85 },
+      { name: "PyTorch", level: 85 },
+      { name: "LangChain", level: 90 },
+      { name: "Ollama (SLMs)", level: 90 },
+      { name: "scikit-learn", level: 88 },
+      { name: "OpenCV", level: 88 },
+      { name: "CUDA/cuDF", level: 80 },
+      { name: "RAG", level: 90 },
+      { name: "Computer Vision", level: 85 },
+    ],
+  },
+  {
+    titleKey: "apiTools",
+    icon: Code,
+    skills: [
+      { name: "FastAPI", level: 90 },
+      { name: "Flask", level: 85 },
+      { name: "REST APIs", level: 90 },
+      { name: "Next.js", level: 85 },
+      { name: "React", level: 85 },
+      { name: "Microsserviços", level: 85 },
+      { name: "Webhooks", level: 85 },
+      { name: "Celery", level: 80 },
+    ],
+  },
+  {
+    titleKey: "graphicsTools",
+    icon: Code,
+    skills: [
+      { name: "OpenGL", level: 75 },
+      { name: "GLFW", level: 75 },
+      { name: "3D Graphics", level: 75 },
+      { name: "Shaders", level: 70 },
+    ],
+  },
 ]
 
 export default function SkillsPage() {
+  const { t } = useLanguage()
+
   return (
     <div className="mx-auto max-w-6xl px-4 pt-24 pb-12 sm:px-6 lg:px-8">
       <div className="mb-12">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight text-balance">Technical Skills</h1>
-        <p className="text-lg text-muted-foreground text-pretty">
-          {"Comprehensive expertise across the modern data engineering stack."}
-        </p>
+        <h1 className="mb-4 text-4xl font-bold tracking-tight text-balance">{t("technicalSkills")}</h1>
+        <p className="text-lg text-muted-foreground text-pretty">{t("skillsSubtitle")}</p>
       </div>
 
       <div className="mb-12 grid gap-6 md:grid-cols-2">
@@ -96,7 +140,7 @@ export default function SkillsPage() {
                 <div className="rounded-lg bg-primary/10 p-2">
                   <Icon className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="text-xl font-semibold">{category.title}</h3>
+                <h3 className="text-xl font-semibold">{t(category.titleKey)}</h3>
               </div>
               <div className="space-y-4">
                 {category.skills.map((skill, i) => (
@@ -119,21 +163,6 @@ export default function SkillsPage() {
         })}
       </div>
 
-      <Card className="p-6">
-        <div className="mb-4 flex items-center gap-2">
-          <div className="rounded-lg bg-accent/10 p-2">
-            <GitBranch className="h-5 w-5 text-accent" />
-          </div>
-          <h3 className="text-xl font-semibold">Certifications</h3>
-        </div>
-        <div className="flex flex-wrap gap-2">
-          {certifications.map((cert, index) => (
-            <Badge key={index} variant="secondary" className="py-2 px-4">
-              {cert}
-            </Badge>
-          ))}
-        </div>
-      </Card>
     </div>
   )
 }
