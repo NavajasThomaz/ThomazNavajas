@@ -29,10 +29,10 @@ services:
   cloudflared:
     image: cloudflare/cloudflared:latest
     container_name: thomaz-navajas-tunnel
-    command: tunnel --config /etc/cloudflared/config.yml run
+    command: tunnel --config /tmp/cloudflared-config.yml run
     volumes:
       # Arquivo de configuração do tunnel
-      - ./cloudflared-config.yml:/etc/cloudflared/config.yml:ro
+      - ./cloudflared-config.yml:/tmp/cloudflared-config.yml:ro
       # Credenciais do tunnel (geradas após login)
       - ${CLOUDFLARE_CREDENTIALS_PATH:-./.cloudflared}/:/etc/cloudflared/:ro
     restart: unless-stopped
