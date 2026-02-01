@@ -37,6 +37,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  /* Background (modo claro) */
+  --tn-bg-image: url("/bg-tech-light.png");
+  --tn-bg-filter: saturate(1) contrast(1.02) brightness(1.04);
+  --tn-bg-overlay:
+    radial-gradient(1000px 700px at 30% 18%, rgba(255, 255, 255, 0.78), transparent 62%),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.62) 45%, rgba(255, 255, 255, 0.35) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.7) 100%);
 }
 
 .dark {
@@ -72,6 +80,14 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.269 0 0);
   --sidebar-ring: oklch(0.439 0 0);
+
+  /* Background (modo escuro) */
+  --tn-bg-image: url("/bg-tech.png");
+  --tn-bg-filter: saturate(0.95) contrast(1.06) brightness(0.82);
+  --tn-bg-overlay:
+    radial-gradient(1000px 700px at 30% 18%, rgba(0, 0, 0, 0.58), transparent 60%),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78) 0%, rgba(0, 0, 0, 0.42) 45%, rgba(0, 0, 0, 0.28) 100%),
+    linear-gradient(180deg, rgba(10, 12, 16, 0.45) 0%, rgba(10, 12, 16, 0.82) 100%);
 }
 
 @theme inline {
@@ -120,5 +136,58 @@
   }
   body {
     @apply bg-background text-foreground;
+    position: relative;
+    min-height: 100vh;
   }
 }
+
+/* Background global (imagem + overlay) para site tech */
+body.tn-site-bg {
+  /* Ajuste fino: deslocamento horizontal do background (pra direita) */
+  --tn-bg-shift-x: 10vw;
+}
+
+body.tn-site-bg::before {
+  content: "";
+  position: fixed;
+  /* Aumenta a "área" pra permitir deslocar sem mostrar bordas */
+  inset: -6vh -12vw;
+  z-index: -2;
+  background-image: var(--tn-bg-image);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 70% top;
+  filter: var(--tn-bg-filter);
+  /* Desloca o background pra direita de forma perceptível */
+  transform: translate3d(var(--tn-bg-shift-x), 0, 0);
+}
+
+body.tn-site-bg::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--tn-bg-overlay);
+}
+
+@media (min-width: 768px) {
+  body.tn-site-bg {
+    --tn-bg-shift-x: 12vw;
+  }
+
+  body.tn-site-bg::before {
+    background-position: 74% top;
+  }
+}
+
+@media (min-width: 1280px) {
+  body.tn-site-bg {
+    --tn-bg-shift-x: 16vw;
+  }
+
+  body.tn-site-bg::before {
+    background-position: 78% top;
+  }
+}
+

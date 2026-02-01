@@ -1,0 +1,80 @@
+THOMAZ COLALILLO NAVAJAS
+São Paulo | Brasil
+Contato: thomaznavajas@gmail.com | linkedin.com/in/thomaz-navajas | github.com/NavajasThomaz
+Engenheiro de Dados | Desenvolvedor de IA | Python
+Engenheiro de Computação, cursando MBA em Engenharia de Dados na FIAP, atuando com engenharia de
+dados e IA aplicada: APIs FastAPI, automação/ingestão (arquivos, Selenium e APIs), MongoDB (Motor async)
+e SQL, desenvolvimento de chat multi‑agente com LLM (LangChain), streaming SSE/WebSocket, OCR
+(Tesseract) e extração estruturada (OpenAI Files), com RBAC/permissões e foco em qualidade, custo e
+observabilidade. Integrações (CRM/Google/APIs/IoT).
+Habilidades Técnicas
+• Linguagens: Python, Go, C, C#, C++, JavaScript/Node.js, HTML/CSS
+• Dados & DE: ETL/ELT, PySpark, Hadoop, Databricks, SQL (MySQL, PostgreSQL), NoSQL (MongoDB),
+dbt, Kafka, Airflow, Terraform, BigQuery, DataOps, MLOps, Modelagem de
+dados(bronze/prata/ouro), SQLAlchemy (ORM), deduplicação/controle de delta, idempotência de
+cargas (conceitos), auditoria/rastreabilidade de execuções de ETL (tabela de execuções),
+normalização de datas e decimais (parsing/qualidade de dados), MongoDB Motor (async),
+PyMongo (conceitos), modelagem orientada a documentos, índices/otimização de queries
+(regex/$or), caching (TTL) para autorização/permissões, serialização de eventos/mensagens,
+versionamento/propagação de schemas dinâmicos (Pydantic create_model), validação com JSON
+Schema (Draft7), heurísticas de qualidade de dados (PDF text stats/garbage ratio), enriquecimento
+de dados via APIs externas, processamento incremental/streaming de dados (SSE).
+• ML/IA: scikit-learn, TensorFlow, PyTorch, LangChain, LLMs/SLMs (Ollama), OpenCV, CUDA/cuDF,
+RAG, OpenAI API (vision + Files API), tool-calling/function calling, streaming de respostas de LLM
+(async generators), engenharia de prompts/guardrails, extração estruturada com
+PydanticOutputParser, OCR com Tesseract (pytesseract), análise de imagens (PIL/Pillow).
+• Cloud & Integração: AWS/Azure/GCP, APIs, microsserviços, webhooks; Flask/FastAPI, Dash,
+Jupyter, Docker, cron, integração com Selenium Grid remoto (container Selenium), WebSocket,
+Server-Sent Events (SSE), OAuth2/JWT, autenticação via API Key (X-Token), integrações com CRM
+(OAuth Client Credentials), Google Static Maps API, consumo HTTP assíncrono (httpx), CORS.
+• Ferramentas/Bibliotecas: Pandas, NumPy, Matplotlib/Seaborn/Plotly, SQLAlchemy, Pytest,
+Selenium, OpenGL/VTK, Pydantic / Pydantic Settings, Requests (download autenticado), Jinja2,
+httpx, tenacity, motor (MongoDB async), python-jose (JWT), bcrypt, Uvicorn, Starlette, pypdf,
+OpenAI SDK.
+Formação acadêmica
+• MBA em Engenharia de Dados - FIAP - cursando
+• Engenharia da Computação - Federal Rio Grade (FURG) concluído em 03/2025
+Idioma
+• Inglês - Avançado
+
+Experiência Profissional
+Allcom Telecom 05/2025 – atual
+Desenvolvedor de IA/Python Pleno | São Paulo (Híbrido)
+• Arquitetei e desenvolvi plataforma Docker com FastAPI + MySQL (SQLAlchemy) e bot Selenium: baixa
+relatórios (CSV/XLSX/ZIP), extrai, normaliza e expõe dados e CRUD via API. Download autenticado
+com cookies, idempotência sem constraint, schema drift; atuação DE: qualidade, dedup/delta,
+índices, auditoria ETL, observabilidade e alertas.
+• Projetei e implementei uma plataforma FastAPI com MongoDB (Motor async) para chat multi-agente,
+persistindo conversas e metadados de mídia.
+• Implementei streaming de respostas em tempo real (SSE) e WebSocket, controle de chunks,
+fallback automático e renderização segura de conteúdo.
+• Construí um pipeline de ingestão de documentos/imagens com OCR (Tesseract) + extração
+estruturada via LLM, incluindo heurística de detecção de PDFs sem camada de texto e uso de OpenAI
+Files API (upload/cleanup) para eficiência de tokens/custo.
+• Implementei “schema evolution” em runtime: geração dinâmica de modelos Pydantic a partir de
+questionários e propagação automática para revalidar e reprocessar dados de produtos,
+garantindo integridade de contratos.
+• Desenvolvi recomendação de produtos baseada em similaridade e enriquecimento externo,
+integrando catálogo interno (Mongo) com dados de terceiros (APIs externas) e produzindo respostas
+enriquecidas (links de datasheet/imagem).
+• Otimização de ingestão de faturas em alto volume: reescrita de leitor (~2,5M itens) de ~23h para
+~30min (~46× mais rápido) sem aumento de custo.
+• Parcerias com Dados, Produto, Suporte, Vendas e Operações para priorizar, medir impacto e
+robustecer produtos de dados/IA.
+• Responsabilidades: projetar e operar arquiteturas escaláveis/seguras on‑prem; construir
+ingestão/ETL/ELT (Selenium/APIs/arquivos); modelar dados (bronze/prata/ouro); integrar
+SQL/NoSQL/serviços internos com foco em qualidade/linhagem; aplicar Git, CI/CD, IaC e
+privacidade/segurança (LGPD).
+Universidade Federal (C3/FURG) 08/2023 – 05/2024
+Pesquisador de Iniciação Cientifica em IA (Bolsista CNPq)
+• Redes GNNs e Transformers com aprendizado contrastivo espaço‑temporal para recomendação por
+sessão (TensorFlow/PyTorch, RecBole, cuDF/CUDA, Pandas).
+• Pipelines reprodutíveis de treino/avaliação no Google Colab.
+Radio Memory 04/2021 – 09/2022
+Estagiário em Desenvolvimento de IA
+• Recursos web/3D com VTK.js/Three.js, Node.js, PHP, Vue; integrações AWS (Lambda, webhooks).
+• Automações/análises em Python com OpenCV, Matplotlib, Keras/TensorFlow para POCs de IA.
+SuperGeeks Itaim Bibi 10/2021 – 04/2022
+Instrutor de Programação & Robótica
+• Instrutor de Python, C#, C++, Arduino, Unity/Unreal. Comunicação técnica e didática.
+

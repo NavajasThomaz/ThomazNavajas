@@ -41,8 +41,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
+      <body className={`${inter.variable} ${geistMono.variable} font-sans antialiased tn-site-bg`}>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false} storageKey="tn-theme">
           <LanguageProvider>
             <Navigation />
             <main className="min-h-screen">{children}</main>

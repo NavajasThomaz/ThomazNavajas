@@ -1,7 +1,8 @@
 "use client"
 
 import Image from "next/image"
-import { useEffect, useRef, useState, type FormEvent } from "react"
+import { useEffect, useMemo, useRef, useState, type FormEvent } from "react"
+import Script from "next/script"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -27,6 +28,7 @@ const STORAGE_KEY = "tn-chat-messages"
 const CONVERSATION_KEY = "tn-conversation-id"
 const MAX_SEGMENT_PREVIEW = 240
 const GENERIC_SEGMENT_IGNORE = ["processing", "searching documents"]
+const MAX_HISTORY_MESSAGES = 16
 
 function escapeHtml(str: string) {
   return str
@@ -42,7 +44,27 @@ function renderRichText(text: string) {
   const bolded = escaped
     .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
     .replace(/__(.+?)__/g, "<strong>$1</strong>")
-  const withBreaks = bolded.replace(/\n/g, "<br />")
+  const withMdLinks = bolded.replace(
+    /\[([^\]]+)\]\(((?:https?:\/\/|\/)[^)]+)\)/g,
+    (_m, label: string, href: string) => {
+      const safeHref = href.startsWith("/") || href.startsWith("http://") || href.startsWith("https://") ? href : "#"
+      return `<a href="${safeHref}" class="underline underline-offset-4" target="${
+        safeHref.startsWith("http") ? "_blank" : "_self"
+      }" rel="noopener noreferrer">${label}</a>`
+    },
+  )
+  const withAutoLinks = withMdLinks.replace(
+    /(\bhttps?:\/\/[^\s<]+|(?:^|[\s(])\/[a-z0-9\-/_?=&]+)(?=$|[\s).,])/gi,
+    (match: string) => {
+      const raw = match.trim()
+      const prefix = match.startsWith(" ") || match.startsWith("(") ? match[0] : ""
+      const url = raw.startsWith("/") || raw.startsWith("http://") || raw.startsWith("https://") ? raw : ""
+      if (!url) return match
+      const target = url.startsWith("http") ? "_blank" : "_self"
+      return `${prefix}<a href="${url}" class="underline underline-offset-4" target="${target}" rel="noopener noreferrer">${url}</a>`
+    },
+  )
+  const withBreaks = withAutoLinks.replace(/\n/g, "<br />")
   return withBreaks
 }
 
@@ -98,8 +120,11 @@ function shouldDisplaySegment(seg: ChatSegment, mainMessage: string) {
 
 export function ChatInterface() {
   const { t } = useLanguage()
+  const turnstileSiteKey = useMemo(() => process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "", [])
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
+  const turnstileRef = useRef<HTMLDivElement>(null)
+  const turnstileWidgetIdRef = useRef<string | null>(null)
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const messagesRef = useRef<ChatMessage[]>([])
   const [conversationId, setConversationId] = useState<string | null>(null)
@@ -108,6 +133,10 @@ export function ChatInterface() {
   const externalSessionIdRef = useRef<string | null>(null)
   const [isLoading, setIsLoading] = useState(false)
   const [hydrated, setHydrated] = useState(false)
+  const [ollamaOk, setOllamaOk] = useState<boolean | null>(null)
+  const [captchaOk, setCaptchaOk] = useState<boolean | null>(null)
+  const [captchaError, setCaptchaError] = useState(false)
+  const [turnstileReady, setTurnstileReady] = useState(false)
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -133,6 +162,83 @@ export function ChatInterface() {
   }, [])
 
   useEffect(() => {
+    if (typeof window === "undefined") return
+    ;(window as any).tnTurnstileOk = async (token: string) => {
+      try {
+        setCaptchaError(false)
+        const res = await fetch("/api/captcha/verify", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ token }),
+          cache: "no-store",
+        })
+        const data = (await res.json().catch(() => ({}))) as any
+        if (data?.ok) {
+          setCaptchaOk(true)
+          return
+        }
+        setCaptchaOk(false)
+        setCaptchaError(true)
+      } catch {
+        setCaptchaOk(false)
+        setCaptchaError(true)
+      }
+    }
+    ;(window as any).tnTurnstileErr = () => {
+      setCaptchaOk(false)
+      setCaptchaError(true)
+    }
+    return () => {
+      try {
+        delete (window as any).tnTurnstileOk
+        delete (window as any).tnTurnstileErr
+      } catch {
+        // ignore
+      }
+    }
+  }, [])
+
+  useEffect(() => {
+    if (!turnstileReady) return
+    if (!turnstileSiteKey) return
+    if (typeof window === "undefined") return
+    if (ollamaOk === false) return
+    if (captchaOk !== false) return
+    if (!turnstileRef.current) return
+
+    const turnstile = (window as any).turnstile
+    if (!turnstile || typeof turnstile.render !== "function") return
+
+    // Re-render safely
+    try {
+      if (turnstileWidgetIdRef.current) {
+        try {
+          turnstile.remove(turnstileWidgetIdRef.current)
+        } catch {
+          // ignore
+        }
+        turnstileWidgetIdRef.current = null
+      }
+      turnstileRef.current.innerHTML = ""
+    } catch {
+      // ignore
+    }
+
+    try {
+      const id = turnstile.render(turnstileRef.current, {
+        sitekey: turnstileSiteKey,
+        theme: "auto",
+        callback: (token: string) => (window as any).tnTurnstileOk?.(token),
+        "error-callback": () => (window as any).tnTurnstileErr?.(),
+        "expired-callback": () => (window as any).tnTurnstileErr?.(),
+      })
+      turnstileWidgetIdRef.current = id
+    } catch {
+      // ignore
+    }
+  }, [turnstileReady, turnstileSiteKey, ollamaOk, captchaOk])
+
+  useEffect(() => {
     if (!hydrated || typeof window === "undefined") return
     localStorage.setItem(STORAGE_KEY, JSON.stringify(messages))
     messagesRef.current = messages
@@ -149,9 +255,58 @@ export function ChatInterface() {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
   }, [messages])
 
-  const sendToAbacus = async (userText: string, assistantId: string) => {
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    let cancelled = false
+    async function check() {
+      try {
+        const res = await fetch("/api/status", { cache: "no-store" })
+        const data = (await res.json().catch(() => ({}))) as any
+        if (!cancelled) setOllamaOk(Boolean(data?.ollama_ok))
+      } catch {
+        if (!cancelled) setOllamaOk(false)
+      }
+    }
+    void check()
+    const id = window.setInterval(check, 30000)
+    return () => {
+      cancelled = true
+      window.clearInterval(id)
+    }
+  }, [])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    let cancelled = false
+    async function checkCaptcha() {
+      try {
+        const res = await fetch("/api/captcha/status", { cache: "no-store" })
+        const data = (await res.json().catch(() => ({}))) as any
+        if (!cancelled) setCaptchaOk(Boolean(data?.ok))
+      } catch {
+        if (!cancelled) setCaptchaOk(false)
+      }
+    }
+    void checkCaptcha()
+    return () => {
+      cancelled = true
+    }
+  }, [])
+
+  const sendToOllama = async (userText: string, assistantId: string) => {
+    if (ollamaOk === false) {
+      throw new Error("offline")
+    }
+    if (captchaOk === false) {
+      throw new Error("captcha")
+    }
+    const history = messagesRef.current
+      .filter((m) => m.id !== assistantId)
+      .slice(-MAX_HISTORY_MESSAGES)
+      .map((m) => ({ role: m.role, text: m.text }))
     const payload = {
       message: userText,
+      messages: history,
       conversationId: conversationIdRef.current,
       externalSessionId: externalSessionIdRef.current,
     }
@@ -164,7 +319,7 @@ export function ChatInterface() {
 
     if (!resp.body || !resp.ok) {
       const errorText = await resp.text().catch(() => "")
-      throw new Error(errorText || "Erro ao contatar o agente")
+      throw new Error(errorText || "Erro ao contatar o Ollama")
     }
 
     const reader = resp.body.getReader()
@@ -253,12 +408,10 @@ export function ChatInterface() {
               : "") ||
             ""
 
-          let chunkText = chunkTextRaw
+          const chunkText = chunkTextRaw
           if (chunkText) {
             if (fullText && chunkText.startsWith(fullText)) {
               fullText = chunkText
-            } else if (fullText && fullText.includes(chunkText)) {
-              // ignore duplicates
             } else {
               fullText = `${fullText}${chunkText}`
             }
@@ -300,7 +453,7 @@ export function ChatInterface() {
   }
 
   const sendMessageText = async (text: string) => {
-    if (!text.trim() || isLoading) return
+    if (!text.trim() || isLoading || ollamaOk === false || captchaOk === false) return
     const userMsg: ChatMessage = {
       id: crypto.randomUUID(),
       role: "user",
@@ -316,7 +469,7 @@ export function ChatInterface() {
     messagesRef.current = nextHistory
     setIsLoading(true)
     try {
-      await sendToAbacus(userMsg.text, assistantId)
+      await sendToOllama(userMsg.text, assistantId)
     } catch (err) {
       const fallback = t("noAnswerFallback")
       setMessages((prev) => prev.map((m) => (m.id === assistantId ? { ...m, text: fallback } : m)))
@@ -326,6 +479,51 @@ export function ChatInterface() {
       setIsLoading(false)
     }
   }
+
+  const injectStaticExchange = (question: string, answer: string) => {
+    if (!question.trim() || !answer.trim()) return
+    const userMsg: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: "user",
+      text: question.trim(),
+    }
+    const assistantMsg: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: "assistant",
+      text: answer.trim(),
+      segments: [],
+    }
+    const nextHistory = [...messagesRef.current, userMsg, assistantMsg]
+    setMessages(nextHistory)
+    messagesRef.current = nextHistory
+    setIsLoading(false)
+  }
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const handler = (evt: Event) => {
+      const detail = (evt as CustomEvent)?.detail as { question?: string } | undefined
+      const q = (detail?.question || "").toString()
+      if (!q.trim()) return
+      if (ollamaOk === false) return
+      void sendMessageText(q)
+    }
+    window.addEventListener("tn-chat-ask", handler as EventListener)
+    return () => window.removeEventListener("tn-chat-ask", handler as EventListener)
+  }, [sendMessageText, ollamaOk])
+
+  useEffect(() => {
+    if (typeof window === "undefined") return
+    const handler = (evt: Event) => {
+      const detail = (evt as CustomEvent)?.detail as { question?: string; answer?: string } | undefined
+      const q = (detail?.question || "").toString()
+      const a = (detail?.answer || "").toString()
+      if (!q.trim() || !a.trim()) return
+      injectStaticExchange(q, a)
+    }
+    window.addEventListener("tn-chat-faq", handler as EventListener)
+    return () => window.removeEventListener("tn-chat-faq", handler as EventListener)
+  }, [])
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement> | { preventDefault: () => void }) => {
     e.preventDefault()
@@ -365,14 +563,45 @@ export function ChatInterface() {
 
   return (
     <Card className="mx-auto w-full overflow-hidden border-2">
+      <Script
+        src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit"
+        strategy="afterInteractive"
+        onLoad={() => setTurnstileReady(true)}
+      />
       <div className="flex items-center gap-2 border-b bg-muted/30 px-4 py-3">
         <Sparkles className="h-5 w-5 text-primary" />
         <span className="text-sm font-semibold sm:text-base">{t("aiAssistant")}</span>
-        <span className="ml-auto text-xs text-muted-foreground">{isLoading ? t("typing") : t("online")}</span>
+        <span className="ml-auto flex items-center gap-2 text-xs text-muted-foreground">
+          <span
+            className={`inline-block h-2.5 w-2.5 rounded-full ${
+              ollamaOk === false ? "bg-red-500" : ollamaOk === true ? "bg-green-500" : "bg-muted-foreground/40"
+            }`}
+          />
+          <span>{ollamaOk === false ? t("offline") : t("online")}</span>
+        </span>
         <Button variant="ghost" size="sm" onClick={handleClear} disabled={isLoading} className="text-xs">
           {t("clearChat")}
         </Button>
       </div>
+      {ollamaOk === false && (
+        <div className="border-b bg-muted/20 px-4 py-2 text-xs text-muted-foreground">{t("modelOfflineNotice")}</div>
+      )}
+
+      {/* Captcha gate (does not block FAQs) */}
+      {ollamaOk !== false && captchaOk === false && (
+        <div className="border-b bg-muted/20 px-4 py-3">
+          <div className="mb-2 text-sm font-semibold">{t("captchaTitle")}</div>
+          <div className="mb-3 text-xs text-muted-foreground">{t("captchaSubtitle")}</div>
+
+          {captchaError && <div className="mb-2 text-xs text-destructive">{t("captchaError")}</div>}
+
+          {turnstileSiteKey ? (
+            <div ref={turnstileRef} />
+          ) : (
+            <div className="text-xs text-muted-foreground">{t("captchaMissingConfig")}</div>
+          )}
+        </div>
+      )}
 
       <div className="h-[400px] overflow-y-auto p-3 sm:h-[500px] sm:p-4">
         {isEmpty ? (
@@ -475,11 +704,11 @@ export function ChatInterface() {
           <Input
             ref={inputRef}
             placeholder={t("askPlaceholder")}
-            disabled={isLoading}
+            disabled={isLoading || ollamaOk === false || captchaOk === false}
             className="flex-1"
             autoComplete="off"
           />
-          <Button type="submit" size="icon" disabled={isLoading}>
+          <Button type="submit" size="icon" disabled={isLoading || ollamaOk === false || captchaOk === false}>
             <Send className="h-4 w-4" />
             <span className="sr-only">{t("send")}</span>
           </Button>
