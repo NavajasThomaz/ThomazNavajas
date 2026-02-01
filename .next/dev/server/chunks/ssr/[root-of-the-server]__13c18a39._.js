@@ -112,166 +112,152 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$ne
 ;
 ;
 const translations = {
-    pt: {
-        home: "Início",
-        experience: "Experiência",
-        projects: "Projetos",
-        skills: "Habilidades",
-        contact: "Contato",
-        dataEngineer: "Engenheiro de Dados",
-        helloTitle: "Engenheiro de Dados & IA",
-        homeTitle: "Thomaz Navajas",
-        homeSubtitle: "Engenheiro de Computação especializado em Engenharia de Dados e Inteligência Artificial. Desenvolvo soluções escaláveis com Python, pipelines ETL/ELT, agentes LLM (LangChain + SLMs), ML aplicado e arquiteturas de dados modernas. Experiência em projetos ponta a ponta on-prem e em nuvem, integrando SQL/NoSQL, APIs e automações web.",
-        yearsExp: "Anos de Experiência",
-        projectsCompleted: "Projetos Concluídos",
-        techMastered: "Tecnologias Dominadas",
-        aiAssistant: "Assistente IA",
-        online: "Online",
-        typing: "Digitando...",
-        clearChat: "Limpar Chat",
-        startConversation: "Inicie uma Conversa",
-        askAnything: "Pergunte qualquer coisa sobre minha experiência, projetos ou habilidades",
-        askPlaceholder: "Pergunte sobre engenharia de dados, projetos ou experiência...",
-        send: "Enviar",
-        noAnswerFallback: "Desculpe, não consegui processar sua pergunta. Por favor, tente novamente.",
-        q1: "Quais são suas principais habilidades?",
-        q2: "Conte-me sobre seus projetos",
-        q3: "Qual sua experiência com big data?",
-        q4: "Como você trabalha com machine learning?",
-        // Experience page
-        workExperience: "Experiência Profissional",
-        experienceSubtitle: "Minha jornada profissional em engenharia de dados, construindo sistemas escaláveis e impulsionando tomadas de decisão baseadas em dados.",
-        keyAchievements: "Principais Conquistas:",
-        period: "Período",
-        // Projects page
-        featuredProjects: "Projetos em Destaque",
-        projectsSubtitle: "Mostrando projetos impactantes de engenharia de dados que resolvem problemas do mundo real em escala.",
-        impact: "Impacto",
-        viewCode: "Ver Código",
-        liveDemo: "Demonstração ao Vivo",
-        // Skills page
-        technicalSkills: "Habilidades Técnicas",
-        skillsSubtitle: "Experiência abrangente em todo o stack moderno de engenharia de dados.",
-        programmingLanguages: "Linguagens de Programação",
-        bigDataTech: "Tecnologias de Big Data",
-        cloudPlatforms: "Plataformas em Nuvem",
-        databases: "Bancos de Dados",
-        devOpsTools: "DevOps e Ferramentas",
-        dataTools: "Ferramentas de Dados",
-        mlAiTools: "ML/IA e Ferramentas",
-        apiTools: "APIs e Integração",
-        graphicsTools: "Gráficos e Visualização 3D",
-        certifications: "Certificações",
-        // Contact page
-        getInTouch: "Entre em Contato",
-        contactSubtitle: "Interessado em trabalhar juntos? Vamos nos conectar e discutir como posso ajudar com suas necessidades de engenharia de dados.",
-        contactInformation: "Informações de Contato",
-        email: "E-mail",
-        location: "Localização",
-        socialLinks: "Links Sociais",
-        sendMessage: "Enviar Mensagem",
-        name: "Nome",
-        namePlaceholder: "Seu nome",
-        emailPlaceholder: "seu.email@exemplo.com",
-        subject: "Assunto",
-        subjectPlaceholder: "Sobre o que se trata?",
-        message: "Mensagem",
-        messagePlaceholder: "Conte-me sobre seu projeto ou oportunidade...",
-        sendMessageButton: "Enviar Mensagem"
-    },
     en: {
+        // Navigation
         home: "Home",
         experience: "Experience",
         projects: "Projects",
         skills: "Skills",
         contact: "Contact",
         dataEngineer: "Data Engineer",
-        helloTitle: "Data Engineer & AI",
-        homeTitle: "Thomaz Navajas",
-        homeSubtitle: "Computer Engineer specialized in Data Engineering and Artificial Intelligence. I develop scalable solutions with Python, ETL/ELT pipelines, LLM agents (LangChain + SLMs), applied ML and modern data architectures. Experience in end-to-end projects on-prem and in cloud, integrating SQL/NoSQL, APIs and web automation.",
-        yearsExp: "Years of Experience",
+        // Homepage
+        homeTitle: "Hi, I'm Thomaz Navajas",
+        helloTitle: "Hi, I'm Thomaz Navajas",
+        homeSubtitle: "Data Engineer and AI/Python developer. Ask me anything about my experience, technical skills, and the kinds of problems I can solve in data/AI.",
+        commonQuestionsTitle: "Frequently asked questions",
+        commonQuestionsSubtitle: "Click to simulate a chat answer",
+        askInChat: "Ask in chat",
+        yearsExp: "Years Experience",
         projectsCompleted: "Projects Completed",
         techMastered: "Technologies Mastered",
-        aiAssistant: "AI Assistant",
+        // Chat Interface
+        aiAssistant: "Chat with Thomaz",
+        typing: "Thinking...",
         online: "Online",
-        typing: "Typing...",
-        clearChat: "Clear Chat",
-        startConversation: "Start a Conversation",
-        askAnything: "Ask me anything about my experience, projects, or skills",
-        askPlaceholder: "Ask about data engineering, projects, or experience...",
-        send: "Send",
-        noAnswerFallback: "Sorry, I couldn't process your question. Please try again.",
-        q1: "What are your main skills?",
-        q2: "Tell me about your projects",
-        q3: "What's your experience with big data?",
-        q4: "How do you work with machine learning?",
-        // Experience page
-        workExperience: "Work Experience",
-        experienceSubtitle: "My professional journey in data engineering, building scalable systems and driving data-driven decision making.",
-        keyAchievements: "Key Achievements:",
-        period: "Period",
-        // Projects page
-        featuredProjects: "Featured Projects",
-        projectsSubtitle: "Showcasing impactful data engineering projects that solve real-world problems at scale.",
-        impact: "Impact",
-        viewCode: "View Code",
-        liveDemo: "Live Demo",
-        // Skills page
+        offline: "Offline",
+        modelOfflineNotice: "Sorry for the inconvenience. This chat model runs on my personal computer, and it’s temporarily offline. The FAQ answers are still available and the chat should be back soon.",
+        captchaTitle: "Verification",
+        captchaSubtitle: "Please complete the captcha to use the chat",
+        captchaMissingConfig: "Captcha is not configured yet.",
+        captchaError: "Captcha verification failed. Please try again.",
+        startConversation: "Start a conversation",
+        askAnything: "Ask me anything about my background, skills, or projects",
+        askPlaceholder: "Ask me anything...",
+        send: "Send message",
+        clearChat: "Clear",
+        noAnswerFallback: "Sorry, I couldn't get a response now. Please try again.",
+        // Suggested Questions
+        q1: "What's your experience with data pipelines?",
+        q2: "Tell me about your technical skills",
+        q3: "What projects have you worked on?",
+        q4: "What tools do you use for ETL?",
+        // Experience Page
+        experienceTitle: "Professional Experience",
+        experienceSubtitle: "My journey in data engineering and analytics",
+        keyAchievements: "Highlights",
+        // Projects Page
+        projectsTitle: "Projects (GitHub)",
+        projectsSubtitle: "All my public repositories on GitHub.",
+        featuredProjects: "Projects",
+        viewCode: "View on GitHub",
+        // Skills Page
+        skillsTitle: "Technical Skills",
+        skillsSubtitle: "Technologies and tools I work with",
         technicalSkills: "Technical Skills",
-        skillsSubtitle: "Comprehensive expertise across the modern data engineering stack.",
-        programmingLanguages: "Programming Languages",
-        bigDataTech: "Big Data Technologies",
-        cloudPlatforms: "Cloud Platforms",
-        databases: "Databases",
-        devOpsTools: "DevOps & Tools",
-        dataTools: "Data Tools",
-        mlAiTools: "ML/AI & Tools",
-        apiTools: "APIs & Integration",
-        graphicsTools: "Graphics & 3D Visualization",
-        certifications: "Certifications",
-        // Contact page
-        getInTouch: "Get in Touch",
-        contactSubtitle: "Interested in working together? Let's connect and discuss how I can help with your data engineering needs.",
-        contactInformation: "Contact Information",
+        // Contact Page
+        contactTitle: "Get In Touch",
+        contactSubtitle: "Let's discuss how we can work together",
+        getInTouch: "Get In Touch",
+        contactInformation: "Contact information",
         email: "Email",
         location: "Location",
-        socialLinks: "Social Links",
-        sendMessage: "Send a Message",
+        socialLinks: "Social links",
+        sendMessage: "Send a message",
         name: "Name",
-        namePlaceholder: "Your name",
-        emailPlaceholder: "your.email@example.com",
         subject: "Subject",
-        subjectPlaceholder: "What's this about?",
         message: "Message",
-        messagePlaceholder: "Tell me about your project or opportunity...",
-        sendMessageButton: "Send Message"
+        namePlaceholder: "Your name",
+        emailPlaceholder: "your@email.com",
+        subjectPlaceholder: "Optional subject",
+        messagePlaceholder: "Write your message…",
+        sendMessageButton: "Open email"
+    },
+    pt: {
+        // Navigation
+        home: "Início",
+        experience: "Experiência",
+        projects: "Projetos",
+        skills: "Habilidades",
+        contact: "Contato",
+        dataEngineer: "Engenheiro de Dados",
+        // Homepage
+        homeTitle: "Olá, eu sou o Thomaz Navajas",
+        helloTitle: "Olá, eu sou o Thomaz Navajas",
+        homeSubtitle: "Engenheiro de Dados e desenvolvedor de IA/Python. Pergunte sobre minha experiência, habilidades técnicas e os problemas que eu sei resolver em dados/IA.",
+        commonQuestionsTitle: "Perguntas frequentes",
+        commonQuestionsSubtitle: "Clique para simular a resposta no chat",
+        askInChat: "Perguntar no chat",
+        yearsExp: "Anos de Experiência",
+        projectsCompleted: "Projetos Concluídos",
+        techMastered: "Tecnologias Dominadas",
+        // Chat Interface
+        aiAssistant: "Chat com o Thomaz",
+        typing: "Pensando...",
+        online: "Online",
+        offline: "Offline",
+        modelOfflineNotice: "Desculpe o incômodo. Este modelo roda no meu computador pessoal e está temporariamente offline. As respostas das Perguntas frequentes continuam disponíveis e em breve o chat volta ao normal.",
+        captchaTitle: "Verificação",
+        captchaSubtitle: "Conclua o captcha para usar o chat",
+        captchaMissingConfig: "Captcha ainda não está configurado.",
+        captchaError: "Falha ao validar o captcha. Tente novamente.",
+        startConversation: "Iniciar uma conversa",
+        askAnything: "Pergunte-me qualquer coisa sobre minha formação, habilidades ou projetos",
+        askPlaceholder: "Pergunte-me qualquer coisa...",
+        send: "Enviar mensagem",
+        clearChat: "Limpar",
+        noAnswerFallback: "Não consegui obter resposta agora. Tente novamente.",
+        // Suggested Questions
+        q1: "Qual é sua experiência com pipelines de dados?",
+        q2: "Fale sobre suas habilidades técnicas",
+        q3: "Em quais projetos você trabalhou?",
+        q4: "Quais ferramentas você usa para ETL?",
+        // Experience Page
+        experienceTitle: "Experiência Profissional",
+        experienceSubtitle: "Minha jornada em engenharia de dados e análise",
+        keyAchievements: "Destaques",
+        // Projects Page
+        projectsTitle: "Projetos (GitHub)",
+        projectsSubtitle: "Todos os meus repositórios públicos no GitHub.",
+        featuredProjects: "Projetos",
+        viewCode: "Ver no GitHub",
+        // Skills Page
+        skillsTitle: "Habilidades Técnicas",
+        skillsSubtitle: "Tecnologias e ferramentas com as quais trabalho",
+        technicalSkills: "Habilidades Técnicas",
+        // Contact Page
+        contactTitle: "Entre em Contato",
+        contactSubtitle: "Vamos discutir como podemos trabalhar juntos",
+        getInTouch: "Entre em Contato",
+        contactInformation: "Informações de contato",
+        email: "E-mail",
+        location: "Localização",
+        socialLinks: "Redes",
+        sendMessage: "Enviar mensagem",
+        name: "Nome",
+        subject: "Assunto",
+        message: "Mensagem",
+        namePlaceholder: "Seu nome",
+        emailPlaceholder: "seu@email.com",
+        subjectPlaceholder: "Assunto (opcional)",
+        messagePlaceholder: "Escreva sua mensagem…",
+        sendMessageButton: "Abrir e-mail"
     }
 };
 const LanguageContext = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["createContext"])(undefined);
-const LANGUAGE_STORAGE_KEY = "portfolio-language";
 function LanguageProvider({ children }) {
-    const [language, setLanguageState] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("pt");
-    const [hydrated, setHydrated] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
-    // Load language from localStorage on mount
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if ("TURBOPACK compile-time truthy", 1) return;
-        //TURBOPACK unreachable
-        ;
-    }, []);
-    // Save language to localStorage when it changes
-    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
-        if ("TURBOPACK compile-time truthy", 1) return;
-        //TURBOPACK unreachable
-        ;
-    }, [
-        language,
-        hydrated
-    ]);
-    const setLanguage = (lang)=>{
-        setLanguageState(lang);
-    };
+    const [language, setLanguage] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])("en");
     const t = (key)=>{
-        return translations[language]?.[key] || key;
+        return translations[language][key] || key;
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f2e$pnpm$2f$next$40$16$2e$0$2e$3_$40$opentelemetry$2b$api$40$1$2e$9$2e$0_react$2d$dom$40$19$2e$2$2e$0_react$40$19$2e$2$2e$0_$5f$react$40$19$2e$2$2e$0$2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LanguageContext.Provider, {
         value: {
@@ -282,8 +268,8 @@ function LanguageProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/lib/language-context.tsx",
-        lineNumber: 191,
-        columnNumber: 13
+        lineNumber: 183,
+        columnNumber: 10
     }, this);
 }
 function useLanguage() {
