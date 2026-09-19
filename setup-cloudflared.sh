@@ -90,14 +90,6 @@ echo ""
 if [ ! -f ".env.example" ]; then
     echo "📝 Criando .env.example..."
     cat > .env.example << EOF
-# Abacus AI (Obrigatórias)
-ABACUS_DEPLOYMENT_TOKEN=seu_token_aqui
-ABACUS_DEPLOYMENT_ID=seu_id_aqui
-
-# Abacus AI (Opcionais)
-ABACUS_API_KEY=sua_chave_opcional
-ABACUS_API_URL=https://apps.abacus.ai
-
 # Cloudflare Tunnel
 CLOUDFLARE_CREDENTIALS_PATH=./.cloudflared
 CLOUDFLARE_HOSTNAME=$HOSTNAME

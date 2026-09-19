@@ -1,13 +1,4 @@
-THOMAZ COLALILLO NAVAJAS
-São Paulo | Brasil
-Contato: thomaznavajas@gmail.com | linkedin.com/in/thomaz-navajas | github.com/NavajasThomaz
-Engenheiro de Dados | Desenvolvedor de IA | Python
-Engenheiro de Computação, cursando MBA em Engenharia de Dados na FIAP, atuando com engenharia de
-dados e IA aplicada: APIs FastAPI, automação/ingestão (arquivos, Selenium e APIs), MongoDB (Motor async)
-e SQL, desenvolvimento de chat multi‑agente com LLM (LangChain), streaming SSE/WebSocket, OCR
-(Tesseract) e extração estruturada (OpenAI Files), com RBAC/permissões e foco em qualidade, custo e
-observabilidade. Integrações (CRM/Google/APIs/IoT).
-Habilidades Técnicas
+Habilidades Técnicas:
 • Linguagens: Python, Go, C, C#, C++, JavaScript/Node.js, HTML/CSS
 • Dados & DE: ETL/ELT, PySpark, Hadoop, Databricks, SQL (MySQL, PostgreSQL), NoSQL (MongoDB),
 dbt, Kafka, Airflow, Terraform, BigQuery, DataOps, MLOps, Modelagem de
@@ -31,15 +22,45 @@ Server-Sent Events (SSE), OAuth2/JWT, autenticação via API Key (X-Token), inte
 Selenium, OpenGL/VTK, Pydantic / Pydantic Settings, Requests (download autenticado), Jinja2,
 httpx, tenacity, motor (MongoDB async), python-jose (JWT), bcrypt, Uvicorn, Starlette, pypdf,
 OpenAI SDK.
-Formação acadêmica
+
+Pontos Fortes(Em ordem decrescente):
+Python, ETL, Automações
+
+Formação acadêmica:
 • MBA em Engenharia de Dados - FIAP - cursando
 • Engenharia da Computação - Federal Rio Grade (FURG) concluído em 03/2025
 Idioma
 • Inglês - Avançado
 
-Experiência Profissional
-Allcom Telecom 05/2025 – atual
-Desenvolvedor de IA/Python Pleno | São Paulo (Híbrido)
+Experiências Profissionais:
+1ª
+Onde: SuperGeeks Itaim Bibi
+Quando: 10/2021 – 04/2022
+Cargo: Instrutor de Programação & Robótica
+Modalidade: CLT
+Resposabilidae
+• Instrutor de Python, C#, C++, Arduino, Unity/Unreal. Comunicação técnica e didática.
+2ª
+Onde: Radio Memory
+Quando: 04/2021 – 09/2022
+Cargo: Estagiário em Desenvolvimento de IA
+Resposabilidades:
+• Recursos web/3D com VTK.js/Three.js, Node.js, PHP, Vue; integrações AWS (Lambda, webhooks).
+• Automações/análises em Python com OpenCV, Matplotlib, Keras/TensorFlow para POCs de IA.
+3ª
+Onde: Universidade Federal (C3/FURG/CNPq)
+Quando: 08/2023 – 05/2024
+Cargo: Pesquisador de Iniciação Cientifica em IA (Bolsista CNPq)
+Resposabilidades:
+• Redes GNNs e Transformers com aprendizado contrastivo espaço‑temporal para recomendação por
+sessão (TensorFlow/PyTorch, RecBole, cuDF/CUDA, Pandas).
+• Pipelines reprodutíveis de treino/avaliação no Google Colab.
+4ª
+Onde: Allcom Telecom 
+Quando: 05/2025 – atual
+Cargo: Desenvolvedor de IA/Python Pleno
+Modalidade: PJ
+Resposabilidades:
 • Arquitetei e desenvolvi plataforma Docker com FastAPI + MySQL (SQLAlchemy) e bot Selenium: baixa
 relatórios (CSV/XLSX/ZIP), extrai, normaliza e expõe dados e CRUD via API. Download autenticado
 com cookies, idempotência sem constraint, schema drift; atuação DE: qualidade, dedup/delta,
@@ -65,16 +86,10 @@ robustecer produtos de dados/IA.
 ingestão/ETL/ELT (Selenium/APIs/arquivos); modelar dados (bronze/prata/ouro); integrar
 SQL/NoSQL/serviços internos com foco em qualidade/linhagem; aplicar Git, CI/CD, IaC e
 privacidade/segurança (LGPD).
-Universidade Federal (C3/FURG) 08/2023 – 05/2024
-Pesquisador de Iniciação Cientifica em IA (Bolsista CNPq)
-• Redes GNNs e Transformers com aprendizado contrastivo espaço‑temporal para recomendação por
-sessão (TensorFlow/PyTorch, RecBole, cuDF/CUDA, Pandas).
-• Pipelines reprodutíveis de treino/avaliação no Google Colab.
-Radio Memory 04/2021 – 09/2022
-Estagiário em Desenvolvimento de IA
-• Recursos web/3D com VTK.js/Three.js, Node.js, PHP, Vue; integrações AWS (Lambda, webhooks).
-• Automações/análises em Python com OpenCV, Matplotlib, Keras/TensorFlow para POCs de IA.
-SuperGeeks Itaim Bibi 10/2021 – 04/2022
-Instrutor de Programação & Robótica
-• Instrutor de Python, C#, C++, Arduino, Unity/Unreal. Comunicação técnica e didática.
+
+
+
+
+
+
 

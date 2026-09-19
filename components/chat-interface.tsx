@@ -122,6 +122,7 @@ export function ChatInterface() {
   const { t } = useLanguage()
   const turnstileSiteKey = useMemo(() => process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY || "", [])
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const turnstileRef = useRef<HTMLDivElement>(null)
   const turnstileWidgetIdRef = useRef<string | null>(null)
@@ -135,8 +136,12 @@ export function ChatInterface() {
   const [hydrated, setHydrated] = useState(false)
   const [ollamaOk, setOllamaOk] = useState<boolean | null>(null)
   const [captchaOk, setCaptchaOk] = useState<boolean | null>(null)
+  const [modelName, setModelName] = useState<string>("gemini-3-flash-preview:cloud")
+  const [modelSource, setModelSource] = useState<"cloud" | "local" | "">("cloud")
+  const [embeddingEnabled, setEmbeddingEnabled] = useState(false)
   const [captchaError, setCaptchaError] = useState(false)
   const [turnstileReady, setTurnstileReady] = useState(false)
+  const [loadingStepIdx, setLoadingStepIdx] = useState(0)
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -252,8 +257,29 @@ export function ChatInterface() {
   }, [conversationId, hydrated])
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
+    const container = messagesContainerRef.current
+    if (!container) return
+    container.scrollTo({ top: container.scrollHeight, behavior: "smooth" })
   }, [messages])
+
+  const loadingSteps = useMemo(() => {
+    if (embeddingEnabled) {
+      return [t("loadingSearching"), t("loadingAnalyzing"), t("loadingThinking")]
+    }
+    return [t("loadingThinking"), t("loadingAnalyzing")]
+  }, [t, embeddingEnabled])
+  const typingText = t("typing")
+
+  useEffect(() => {
+    if (!isLoading) {
+      setLoadingStepIdx(0)
+      return
+    }
+    const id = window.setInterval(() => {
+      setLoadingStepIdx((prev) => (prev + 1) % loadingSteps.length)
+    }, 1200)
+    return () => window.clearInterval(id)
+  }, [isLoading, loadingSteps.length])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -262,9 +288,29 @@ export function ChatInterface() {
       try {
         const res = await fetch("/api/status", { cache: "no-store" })
         const data = (await res.json().catch(() => ({}))) as any
-        if (!cancelled) setOllamaOk(Boolean(data?.ollama_ok))
+        if (!cancelled) {
+          const ok = Boolean(data?.ollama_ok)
+          setOllamaOk(ok)
+          if (ok && typeof data?.model === "string") {
+            setModelName(data.model)
+          }
+          if (ok && (data?.source === "cloud" || data?.source === "local")) {
+            setModelSource(data.source)
+          }
+          setEmbeddingEnabled(Boolean(data?.embedding_enabled))
+          if (!ok) {
+            setModelName("")
+            setModelSource("")
+            setEmbeddingEnabled(false)
+          }
+        }
       } catch {
-        if (!cancelled) setOllamaOk(false)
+        if (!cancelled) {
+          setOllamaOk(false)
+          setModelName("")
+          setModelSource("")
+          setEmbeddingEnabled(false)
+        }
       }
     }
     void check()
@@ -391,12 +437,16 @@ export function ChatInterface() {
             obj?.deployment_conversation_id ||
             obj?.conversationId ||
             obj?.conversation_id
+          const metaModel = obj?.meta?.model || obj?.model
           const metaExt = obj?.meta?.externalSessionId || obj?.meta?.external_session_id || obj?.externalSessionId
           if (metaConv) {
             resultConversationId = metaConv
           }
           if (metaExt) {
             resultExternalSessionId = metaExt
+          }
+          if (typeof metaModel === "string" && metaModel.trim()) {
+            setModelName(metaModel.trim())
           }
 
           const chunkTextRaw =
@@ -408,7 +458,10 @@ export function ChatInterface() {
               : "") ||
             ""
 
-          const chunkText = chunkTextRaw
+          let chunkText = chunkTextRaw
+          if (!fullText) {
+            chunkText = chunkText.replace(/^[\r\n]+/, "")
+          }
           if (chunkText) {
             if (fullText && chunkText.startsWith(fullText)) {
               fullText = chunkText
@@ -577,7 +630,10 @@ export function ChatInterface() {
               ollamaOk === false ? "bg-red-500" : ollamaOk === true ? "bg-green-500" : "bg-muted-foreground/40"
             }`}
           />
-          <span>{ollamaOk === false ? t("offline") : t("online")}</span>
+          <span>
+            {ollamaOk === false ? t("offline") : t("online")}
+            {modelName ? ` · ${modelName}` : ""}
+          </span>
         </span>
         <Button variant="ghost" size="sm" onClick={handleClear} disabled={isLoading} className="text-xs">
           {t("clearChat")}
@@ -585,6 +641,11 @@ export function ChatInterface() {
       </div>
       {ollamaOk === false && (
         <div className="border-b bg-muted/20 px-4 py-2 text-xs text-muted-foreground">{t("modelOfflineNotice")}</div>
+      )}
+      {ollamaOk !== false && modelSource === "local" && (
+        <div className="border-b bg-muted/20 px-4 py-2 text-xs text-muted-foreground">
+          {t("modelLocalNotice")}
+        </div>
       )}
 
       {/* Captcha gate (does not block FAQs) */}
@@ -603,7 +664,7 @@ export function ChatInterface() {
         </div>
       )}
 
-      <div className="h-[400px] overflow-y-auto p-3 sm:h-[500px] sm:p-4">
+      <div ref={messagesContainerRef} className="h-[400px] overflow-y-auto p-3 sm:h-[500px] sm:p-4">
         {isEmpty ? (
           <div className="flex h-full flex-col items-center justify-center gap-4">
             <div className="rounded-full bg-primary/10 p-3">
@@ -659,10 +720,17 @@ export function ChatInterface() {
                     message.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted"
                   }`}
                 >
-                  <p
-                    className="text-sm leading-relaxed whitespace-pre-wrap"
-                    dangerouslySetInnerHTML={{ __html: renderRichText(message.text) }}
-                  />
+                  {message.role === "assistant" && message.text === typingText && isLoading ? (
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                      <Loader2 className="h-4 w-4 animate-spin" />
+                      <span>{loadingSteps[loadingStepIdx]}</span>
+                    </div>
+                  ) : (
+                    <p
+                      className="text-sm leading-relaxed whitespace-pre-wrap"
+                      dangerouslySetInnerHTML={{ __html: renderRichText(message.text) }}
+                    />
+                  )}
                   {message.segments && message.segments.length > 0 && (
                     <div className="mt-2 rounded-md border bg-background/60 p-2 text-xs text-muted-foreground">
                       <div className="mb-1 font-semibold">Processo interno</div>
